@@ -56,44 +56,139 @@
         }
         /*EXERCICI 2: Crea una funció JavaScript que mostri per pantalla un exemple de cada una de les funcions de Arrays
         amb: Array inicial → còpia del mètode i els paràmetres utilitzats → resultat al executar-lo*/
-        function arraysEjemplos(){
-            /*at() Returns an indexed element of an array
-            concat() Joins arrays and returns an array with the joined arrays
-            constructor Returns the function that created the Array object's prototype
-            copyWithin() Copies array elements within the array, to and from specified positions
-            entries() Returns a key/value pair Array Iteration Object
-            every() Checks if every element in an array pass a test
-            fill() Fill the elements in an array with a static value
-            filter() Creates a new array with every element in an array that pass a test
-            find() Returns the value of the first element in an array that pass a test
-            findIndex() Returns the index of the first element in an array that pass a test
-            flat() Concatenates sub-array elements
-            flatMap() Maps all array elements and creates a new flat array
-            forEach() Calls a function for each array element
-            from() Creates an array from an object
-            includes() Check if an array contains the specified element
-            indexOf() Search the array for an element and returns its position
-            isArray() Checks whether an object is an array
-            join() Joins all elements of an array into a string
-            keys() Returns a Array Iteration Object, containing the keys of the original array
-            lastIndexOf() Search the array for an element, starting at the end, and returns its position
-            length Sets or returns the number of elements in an array
-            map() Creates a new array with the result of calling a function for each array element
-            pop() Removes the last element of an array, and returns that element
-            prototype Allows you to add properties and methods to an Array object
-            push() Adds new elements to the end of an array, and returns the new length
-            reduce() Reduce the values of an array to a single value (going left-to-right)
-            reduceRight() Reduce the values of an array to a single value (going right-to-left)
-            reverse() Reverses the order of the elements in an array
-            shift() Removes the first element of an array, and returns that element
-            slice() Selects a part of an array, and returns the new array
+        function arraysEjemplos() {
+            // Array de numeros
+            let arrayNumeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-            some() Checks if any of the elements in an array pass a test
-            sort() Sorts the elements of an array
-            splice() Adds/Removes elements from an array
-            toString() Converts an array to a string, and returns the result
-            unshift() Adds new elements to the beginning of an array, and returns the new length
-            valueOf() Returns the primitive value of an array*/
+            // at()
+            document.write("at(): " + arrayNumeros.at(2) + "<br>");
+
+            // concat()
+            let newArray = arrayNumeros.concat([1, 10]);
+            document.write("concat(): " + newArray + "<br>");
+
+            // constructor
+            document.write("Metodo constructor?????<br>");
+
+            // copyWithin()
+            arrayNumeros.copyWithin(1, 5, 9);
+            document.write("copyWithin(): " + arrayNumeros + "<br>");
+
+            // entries()
+            let metodEntry = arrayNumeros.entries();
+            document.write("entries(): " + Array.from(metodEntry) + "<br>");
+
+            // every()
+            document.write("every(): " + arrayNumeros.every((Element) => Element > 0) + "<br>");
+
+            // fill()
+            arrayNumeros.fill(0, 2, 4, 6, 8, 10);
+            document.write("fill(): " + arrayNumeros + "<br>");
+
+            // filter()
+            let filteredArray = arrayNumeros.filter((Element) => Element > 2);
+            document.write("filter(): " + filteredArray + "<br>");
+
+            // find()
+            let foundElement = arrayNumeros.find((Element) => Element > 2);
+            document.write("find(): " + foundElement + "<br>");
+
+            // findIndex()
+            let foundIndex = arrayNumeros.findIndex((Element) => Element > 2);
+            document.write("findIndex(): " + foundIndex + "<br>");
+
+            // flat()
+            let flatArray = [1, [2, [3, 4]]].flat();
+            document.write("flat(): " + flatArray + "<br>");
+
+            // flatMap()
+            let mappedArray = arrayNumeros.flatMap((Element) => [Element, Element * 2]);
+            document.write("flatMap(): " + mappedArray + "<br>");
+
+            // forEach()
+            arrayNumeros.forEach((Element) => document.write("forEach(): " + Element + "<br>"));
+
+            // from()
+            let numerosObjectes = { length: 4, 0: "a", 1: "b", 2: "c" };
+            document.write("from(): " + Array.from(numerosObjectes) + "<br>");
+
+            // includes()
+            document.write("includes(): " + arrayNumeros.includes(0) + "<br>");
+
+            // indexOf()
+            document.write("indexOf(): " + arrayNumeros.indexOf(3) + "<br>");
+
+            // isArray()
+            document.write("isArray(): " + Array.isArray(arrayNumeros) + "<br>");
+
+            // join()
+            document.write("join(): " + arrayNumeros.join("-") + "<br>");
+
+            // keys()
+            let numerosKey = arrayNumeros.keys();
+            document.write("keys(): " + Array.from(numerosKey) + "<br>");
+
+            // lastIndexOf()
+            document.write("lastIndexOf(): " + arrayNumeros.lastIndexOf(6) + "<br>");
+
+            // length
+            document.write("length: " + arrayNumeros.length + "<br>");
+
+            // map()
+            let mappedValues = arrayNumeros.map((Element) => Element * 2);
+            document.write("map(): " + mappedValues + "<br>");
+
+            // pop()
+            let poppedElement = arrayNumeros.pop();
+            document.write("pop(): " + poppedElement + "<br>");
+
+            // prototype
+            document.write("Metodo prototype??????<br>");
+
+            // push()
+            let newLength = arrayNumeros.push(4, 9);
+            document.write("push(): " + newLength + "<br>");
+
+            // reduce()
+            let sum = arrayNumeros.reduce((acc, curr) => acc + curr);
+            document.write("reduce(): " + sum + "<br>");
+
+            // reduceRight()
+            let reducedRight = arrayNumeros.reduceRight((acc, curr) => acc + curr);
+            document.write("reduceRight(): " + reducedRight + "<br>");
+
+            // reverse()
+            arrayNumeros.reverse();
+            document.write("reverse(): " + arrayNumeros + "<br>");
+
+            // shift()
+            let shiftedElement = arrayNumeros.shift();
+            document.write("shift(): " + shiftedElement + "<br>");
+
+            // slice()
+            let slicedArray = arrayNumeros.slice(5, 9);
+            document.write("slice(): " + slicedArray + "<br>");
+
+            // some()
+            document.write("some(): " + arrayNumeros.some((Element) => Element > 4) + "<br>");
+
+            // sort()
+            document.write("sort(): " + arrayNumeros.sort() + "<br>");
+
+            // splice()
+            let splicedArray = arrayNumeros.splice(2, 4, 6, 8, 10);
+            document.write("splice(): " + splicedArray + "<br>");
+
+            // toString()
+            document.write("toString(): " + arrayNumeros.toString() + "<br>");
+
+            // unshift()
+            let newLengthAfterUnshift = arrayNumeros.unshift(0);
+            document.write("unshift(): " + newLengthAfterUnshift + "<br>");
+
+            // valueOf()
+            let arrayValue = arrayNumeros.valueOf();
+            document.write("valueOf(): " + arrayValue + "<br>");
         }
     </script>
 </html>
