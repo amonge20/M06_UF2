@@ -6,9 +6,7 @@
         <title>M06 UF2: ACTIVIDAD INICIAL</title>
     </head>
     <body>
-        <h1>Exercici 1</h1>
-        <button onclick="arrayColors()">Colores</button> 
-        <h1>Exercici 2</h1>
+        <button onclick="arrayColors()">Colores</button>      
         <button onclick="arraysEjemplos()">Arrays</button>
     </body>
     <script>
@@ -21,7 +19,7 @@
         (ha d’escriure en una pàgina Web)*/
         function arrayColors(){
             //Arrays de colors
-            let colors = ['verd', 'vermell', 'groc', 'blau', 'negre', 'blanc'];
+            const colors = ['verd', 'vermell', 'groc', 'blau', 'negre', 'blanc'];
 
             //Si tots els colors són menores que 'marro'
             let TotsColorsMenorMarro = colors.every(function(color) {
@@ -41,154 +39,257 @@
 
             //Eliminar el color 'verd'
             let colorEliminat = null;
-            let indiceVerd = colors.indexOf('verd');
-            if (indiceVerd !== -1) {
-                colorEliminat = colors[indiceVerd];
-                colors.splice(indiceVerd, 1);
+            let indexVerd = colors.indexOf('verd');
+            if (indexVerd !== -1) {
+                colorEliminat = colors[indexVerd];
+                colors.splice(indexVerd, 1);
             }
 
             //DOCUMENT.WRITE el resultat del colors 
-            document.write("Tots els colors son menors que marro " + TotsColorsMenorMarro + '<br>');
-            document.write("Els colors que son menors que el marro " + ColorMenorMarro.join(', ') + '<br>');
-            document.write("Els 2 darrers colors " + colorsDarrers.join(', ') + '<br>');
-            document.write("Nou color: " + colors.join(', ') + '<br>');
+            document.write("Exerici 1" + "<br>");
+            document.write("Tots els colors son menors que marro " + TotsColorsMenorMarro + "<br>");
+            document.write("Els colors que son menors que el marro " + ColorMenorMarro.join(', ') + "<br>");
+            document.write("Els 2 darrers colors " + colorsDarrers.join(', ') + "<br>");
+            document.write("Nou color: " + colors.join(', ') + "<br>");
             document.write("Color eliminat: " + colorEliminat);
         }
         /*EXERCICI 2: Crea una funció JavaScript que mostri per pantalla un exemple de cada una de les funcions de Arrays
         amb: Array inicial → còpia del mètode i els paràmetres utilitzats → resultat al executar-lo*/
-        function arraysEjemplos() {
-            // Array de numeros
-            let arrayNumeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        //Array dels cotxes
+        const arrayCoches = ["Citroën "," Ford "," Nissan "," Wolksvagen "," Seat "];
+        const arrayCoches1 = [" Hyundai"," Rangerover "," Peugeot "," Renault"];
 
-            // at()
-            document.write("at(): " + arrayNumeros.at(2) + "<br>");
+        //Un exemple de cada metode en funcions
+        function arraysEjemplos(){
+            document.write("Exerici 2", "<br>");
+            at();
+            concat();
+            constructor();
+            copyWithin();
+            entries();
+            every();
+            fill();
+            filter();
+            find();
+            findIndex();
+            flat();
+            flatMap();
+            forEach();
+            from();
+            includes();
+            indexOf();
+            isArray();
+            join();
+            keys();
+            lastIndexOf();
+            length();
+            map();
+            pop();
+            prototype();
+            push();
+            reduce();
+            reduceRight();
+            reverse();
+            shift();
+            slice();
+            some();
+            sort();
+            splice();
+            toString();
+            unshift();
+            valueOf();
+        }
+        //Funcio amb el at()
+        function at(){
+            let at = arrayCoches.at(2);
+            document.write("Metodo at(): " + at, "<br>");
+        }
+        //Funcio amb el concat()
+        function concat(){
+            let concat = arrayCoches.concat(arrayCoches1);
+            document.write("Metodo concat(): " + concat + "<br>");
+        }
+        //Funcio amb el constructor
+        function constructor(){
+            let constructor = arrayCoches.constructor;
+            document.write("Metodo constructor: " + constructor + "<br>");
 
-            // concat()
-            let newArray = arrayNumeros.concat([1, 10]);
-            document.write("concat(): " + newArray + "<br>");
-
-            // constructor
-            document.write("Metodo constructor?????<br>");
-
-            // copyWithin()
-            arrayNumeros.copyWithin(1, 5, 9);
-            document.write("copyWithin(): " + arrayNumeros + "<br>");
-
-            // entries()
-            let metodEntry = arrayNumeros.entries();
-            document.write("entries(): " + Array.from(metodEntry) + "<br>");
-
-            // every()
-            document.write("every(): " + arrayNumeros.every((Element) => Element > 0) + "<br>");
-
-            // fill()
-            arrayNumeros.fill(0, 2, 4, 6, 8, 10);
-            document.write("fill(): " + arrayNumeros + "<br>");
-
-            // filter()
-            let filteredArray = arrayNumeros.filter((Element) => Element > 2);
-            document.write("filter(): " + filteredArray + "<br>");
-
-            // find()
-            let foundElement = arrayNumeros.find((Element) => Element > 2);
-            document.write("find(): " + foundElement + "<br>");
-
-            // findIndex()
-            let foundIndex = arrayNumeros.findIndex((Element) => Element > 2);
-            document.write("findIndex(): " + foundIndex + "<br>");
-
-            // flat()
-            let flatArray = [1, [2, [3, 4]]].flat();
-            document.write("flat(): " + flatArray + "<br>");
-
-            // flatMap()
-            let mappedArray = arrayNumeros.flatMap((Element) => [Element, Element * 2]);
-            document.write("flatMap(): " + mappedArray + "<br>");
-
-            // forEach()
-            arrayNumeros.forEach((Element) => document.write("forEach(): " + Element + "<br>"));
-
-            // from()
-            let numerosObjectes = { length: 4, 0: "a", 1: "b", 2: "c" };
-            document.write("from(): " + Array.from(numerosObjectes) + "<br>");
-
-            // includes()
-            document.write("includes(): " + arrayNumeros.includes(0) + "<br>");
-
-            // indexOf()
-            document.write("indexOf(): " + arrayNumeros.indexOf(3) + "<br>");
-
-            // isArray()
-            document.write("isArray(): " + Array.isArray(arrayNumeros) + "<br>");
-
-            // join()
-            document.write("join(): " + arrayNumeros.join("-") + "<br>");
-
-            // keys()
-            let numerosKey = arrayNumeros.keys();
-            document.write("keys(): " + Array.from(numerosKey) + "<br>");
-
-            // lastIndexOf()
-            document.write("lastIndexOf(): " + arrayNumeros.lastIndexOf(6) + "<br>");
-
-            // length
-            document.write("length: " + arrayNumeros.length + "<br>");
-
-            // map()
-            let mappedValues = arrayNumeros.map((Element) => Element * 2);
-            document.write("map(): " + mappedValues + "<br>");
-
-            // pop()
-            let poppedElement = arrayNumeros.pop();
-            document.write("pop(): " + poppedElement + "<br>");
-
-            // prototype
-            document.write("Metodo prototype??????<br>");
-
-            // push()
-            let newLength = arrayNumeros.push(4, 9);
-            document.write("push(): " + newLength + "<br>");
-
-            // reduce()
-            let sum = arrayNumeros.reduce((acc, curr) => acc + curr);
-            document.write("reduce(): " + sum + "<br>");
-
-            // reduceRight()
-            let reducedRight = arrayNumeros.reduceRight((acc, curr) => acc + curr);
-            document.write("reduceRight(): " + reducedRight + "<br>");
-
-            // reverse()
-            arrayNumeros.reverse();
-            document.write("reverse(): " + arrayNumeros + "<br>");
-
-            // shift()
-            let shiftedElement = arrayNumeros.shift();
-            document.write("shift(): " + shiftedElement + "<br>");
-
-            // slice()
-            let slicedArray = arrayNumeros.slice(5, 9);
-            document.write("slice(): " + slicedArray + "<br>");
-
-            // some()
-            document.write("some(): " + arrayNumeros.some((Element) => Element > 4) + "<br>");
-
-            // sort()
-            document.write("sort(): " + arrayNumeros.sort() + "<br>");
-
-            // splice()
-            let splicedArray = arrayNumeros.splice(2, 4, 6, 8, 10);
-            document.write("splice(): " + splicedArray + "<br>");
-
-            // toString()
-            document.write("toString(): " + arrayNumeros.toString() + "<br>");
-
-            // unshift()
-            let newLengthAfterUnshift = arrayNumeros.unshift(0);
-            document.write("unshift(): " + newLengthAfterUnshift + "<br>");
-
-            // valueOf()
-            let arrayValue = arrayNumeros.valueOf();
-            document.write("valueOf(): " + arrayValue + "<br>");
+        }
+        //Funcio amb el copyWithin()
+        function copyWithin(){
+            let copyWithin = arrayCoches.copyWithin(7,4);
+            let copyWithin1 = arrayCoches1.copyWithin(6,3);
+            document.write("Metodo copyWithin: " + copyWithin + " y " + copyWithin1 + "<br>");
+        }
+        //Funcio amb entries()
+        function entries(){
+            const entry = arrayCoches.entries();
+            const entry1 = arrayCoches1.entries();
+            document.write("Metodo entries array1: " + entry.next().value + "<br>");
+            document.write("Metodo entries array2: " + entry1.next().value + "<br>");
+        }
+        //Funcio entry()
+        function every(){
+            const menorCoche = (currentValue) => currentValue < "Seat";
+            const menorCoche1 = (currentValue) => currentValue < "Peogeot";
+            document.write("Metodo every array1: " + arrayCoches.every(menorCoche) + "<br>");
+            document.write("Metodo every array2: " + arrayCoches1.every(menorCoche1) + "<br>");
+        }
+        //Funcio amb fill()
+        function fill(){
+            document.write("Metodo fill array1: " + arrayCoches.fill(4,2,5) + "<br>");
+            document.write("Metodo fill array2: " + arrayCoches1.fill(3,1) + "<br>");
+        }
+        //Funcio amb filter()
+        function filter(){
+            const resultadoFilter = arrayCoches.filter((arrayCoches) = arrayCoches.length < 4);
+            const resultadoFilter1 = arrayCoches1.filter((arrayCoches1) = arrayCoches1.length > 2);
+            document.write("Metodo filter array1: " + resultadoFilter + "<br>");
+            document.write("Metodo filter array2: " + resultadoFilter1 + "<br>");
+        }
+        //Funcio amb find()
+        function find(){
+            const arrayFound = arrayCoches.find((Element) => Element > "Seat");
+            const arrayFound1 = arrayCoches1.find((Element) => Element < "Peugeot"); 
+            document.write("Metodo find array1: " + arrayFound + "<br>");
+            document.write("Metodo find array2: " + arrayFound1 + "<br>");
+        }
+        //Funcio amb findIndex()
+        function findIndex(){
+            const resultadoFindIndex = (Element) => Element > "Seat";
+            const resultadoFindIndex1 = (Element) => Element < "Peugeot";
+            document.write("Metodo findIndex array1: " + resultadoFindIndex + "<br>");
+            document.write("Metodo findIndex array2: " + resultadoFindIndex1 + "<br>");
+        }
+        //Funcio amb flat()
+        function flat(){
+            document.write("Metodo flat array1: " + arrayCoches.flat() + "<br>");
+            document.write("Metodo flat array2: " + arrayCoches1.flat() + "<br>"); 
+        }
+        //Funcio amb flatMap()
+        function flatMap(){
+            document.write("Metodo flatMap array1: " + + "<br>");
+            document.write("Metodo flatMap array2: " + + "<br>");
+        }
+        //Funcio amb forEach()
+        function forEach(){
+            document.write("Metodo forEach array1: " + + "<br>");
+            document.write("Metodo forEach array2: " + + "<br>");
+        }
+        //Funcio amb from()
+        function from(){
+            document.write("Metodo from array1: " + + "<br>");
+            document.write("Metodo from array2: " + + "<br>");
+        }
+        //Funcio amb includes()
+        function includes(){
+            document.write("Metodo includes array1: " + + "<br>");
+            document.write("Metodo includes array2: " + + "<br>");
+        }
+        //Funcio amb indexOf()
+        function indexOf(){
+            document.write("Metodo indexOf array1: " + + "<br>");
+            document.write("Metodo indexOf array2: " + + "<br>");
+        }
+        //Funcio amb isArray()
+        function isArray(){
+            document.write("Metodo isArray array1: " + + "<br>");
+            document.write("Metodo isArray array2: " + + "<br>");
+        }
+        //Funcio amb join()
+        function join(){
+            document.write("Metodo join array1: " + + "<br>");
+            document.write("Metodo join array2: " + + "<br>");
+        }
+        //Funcio amb keys()
+        function keys(){
+            document.write("Metodo keys array1: " + + "<br>");
+            document.write("Metodo keys array2: " + + "<br>");
+        }
+        //Funcio amb lastIndexOf()
+        function lastIndexOf(){
+            document.write("Metodo lastIndexOf array1: " + + "<br>");
+            document.write("Metodo lastIndexOf array2: " + + "<br>");
+        }
+        //Funcio amb length()
+        function length(){
+            document.write("Metodo length array1: " + + "<br>");
+            document.write("Metodo length array2: " + + "<br>");
+        }
+        //Funcio amb map()
+        function map(){
+            document.write("Metodo map array1: " + + "<br>");
+            document.write("Metodo map array2: " + + "<br>");
+        }
+        //Funcio amb pop()
+        function pop(){
+            document.write("Metodo pop array1: " + + "<br>");
+            document.write("Metodo pop array2: " + + "<br>");
+        }
+        //Funcio amb prototype()
+        function prototype(){
+            document.write("Metodo prototype array1: " + + "<br>");
+            document.write("Metodo prototype array2: " + + "<br>");
+        }
+        //Funcio amb push()
+        function push(){
+            document.write("Metodo push array1: " + + "<br>");
+            document.write("Metodo push array2: " + + "<br>");
+        }
+        //Funcio amb reduce()
+        function reduce(){
+            document.write("Metodo reduce array1: " + + "<br>");
+            document.write("Metodo reduce array2: " + + "<br>");
+        }
+        //Funcio amb reduceRight()
+        function reduceRight(){
+            document.write("Metodo reduceRight array1: " + + "<br>");
+            document.write("Metodo reduceRight array2: " + + "<br>");
+        }
+        //Funcio amb reverse()
+        function reverse(){
+            document.write("Metodo reverse array1: " + + "<br>");
+            document.write("Metodo reverse array2: " + + "<br>");
+        }
+        //Funcio amb shift()
+        function shift(){
+            document.write("Metodo shift array1: " + + "<br>");
+            document.write("Metodo shift array2: " + + "<br>");
+        }
+        //Funcio amb slice()
+        function slice(){
+            document.write("Metodo slice array1: " + + "<br>");
+            document.write("Metodo slice array2: " + + "<br>");
+        }
+        //Funcio amb some()
+        function some(){
+            document.write("Metodo some array1: " + + "<br>");
+            document.write("Metodo some array2: " + + "<br>");
+        }
+        //Funcio amb sort()
+        function sort(){
+            document.write("Metodo sort array1: " + + "<br>");
+            document.write("Metodo sort array2: " + + "<br>");
+        }
+        //Funcio amb splice()
+        function splice(){
+            document.write("Metodo splice array1: " + + "<br>");
+            document.write("Metodo splice array2: " + + "<br>");
+        }
+        //Funcio amb toString()
+        function toString(){
+            document.write("Metodo toString array1: " + + "<br>");
+            document.write("Metodo toString array2: " + + "<br>");
+        }
+        //Funcio amb unshift()
+        function unshift(){
+            document.write("Metodo unshift array1: " + + "<br>");
+            document.write("Metodo unshift array2: " + + "<br>");
+        }
+        //Funcio amb valueOf()
+        function valueOf(){
+            document.write("Metodo valueOf array1: " + + "<br>");
+            document.write("Metodo valueOf array2: " + + "<br>");
         }
     </script>
 </html>
