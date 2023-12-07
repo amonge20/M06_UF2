@@ -142,154 +142,208 @@
         }
         //Funcio amb filter()
         function filter(){
-            const resultadoFilter = arrayCoches.filter((arrayCoches) = arrayCoches.length < 4);
-            const resultadoFilter1 = arrayCoches1.filter((arrayCoches1) = arrayCoches1.length > 2);
+            const resultadoFilter = arrayCoches.filter(coche => coche.length > 5);
+            const resultadoFilter1 = arrayCoches1.filter(coche => coche.length > 4);
             document.write("Metodo filter array1: " + resultadoFilter + "<br>");
             document.write("Metodo filter array2: " + resultadoFilter1 + "<br>");
         }
         //Funcio amb find()
         function find(){
-            const arrayFound = arrayCoches.find((Element) => Element > "Seat");
-            const arrayFound1 = arrayCoches1.find((Element) => Element < "Peugeot"); 
+            const arrayFound = arrayCoches.find(coche => coche.length > 5);
+            const arrayFound1 = arrayCoches1.find(coche => coche.length > 5); 
             document.write("Metodo find array1: " + arrayFound + "<br>");
             document.write("Metodo find array2: " + arrayFound1 + "<br>");
         }
         //Funcio amb findIndex()
         function findIndex(){
-            const resultadoFindIndex = (Element) => Element > "Seat";
-            const resultadoFindIndex1 = (Element) => Element < "Peugeot";
+            const resultadoFindIndex = arrayCoches.find(coche => coche.length > 5);
+            const resultadoFindIndex1 = arrayCoches1.find(coche => coche.length > 1);
             document.write("Metodo findIndex array1: " + resultadoFindIndex + "<br>");
             document.write("Metodo findIndex array2: " + resultadoFindIndex1 + "<br>");
         }
         //Funcio amb flat()
         function flat(){
-            document.write("Metodo flat array1: " + arrayCoches.flat() + "<br>");
-            document.write("Metodo flat array2: " + arrayCoches1.flat() + "<br>"); 
+            const flatCoches = [["Citroën", "Ford"], ["Nissan", "Peugeot"], ["Seat"]];
+            const flatCoches1 = [["Hyundai", "Rangerover"], ["Wolksvagen", "Renault"]];
+            const resultadoFlat = flatCoches.flat();
+            const resultadoFlat1 = flatCoches1.flat();
+            document.write("Metodo flat array1: " + resultadoFlat.join(', ') + "<br>");
+            document.write("Metodo flat array2: " + resultadoFlat1.join(', ') + "<br>"); 
         }
         //Funcio amb flatMap()
         function flatMap(){
-            document.write("Metodo flatMap array1: " + + "<br>");
-            document.write("Metodo flatMap array2: " + + "<br>");
+            const flatMapArray = arrayCoches.flatMap(coche => (coche.toString()).split(' '));
+            const flatMapArray1 = arrayCoches1.flatMap(coche => (coche.toString()).split(' '));
+            document.write("Metodo flatMap array1: " + flatMapArray + "<br>");
+            document.write("Metodo flatMap array2: " + flatMapArray1 + "<br>");
         }
         //Funcio amb forEach()
         function forEach(){
-            document.write("Metodo forEach array1: " + + "<br>");
-            document.write("Metodo forEach array2: " + + "<br>");
+            const arrayForEach = arrayCoches.forEach(coche => document.write(coche));
+            const arrayForEach1 = arrayCoches1.forEach(coche => document.write(coche));
+
+            document.write("Metodo forEach array1: " + arrayForEach + "<br>");
+            document.write("Metodo forEach array2: " + arrayForEach1 + "<br>");
         }
         //Funcio amb from()
         function from(){
-            document.write("Metodo from array1: " + + "<br>");
-            document.write("Metodo from array2: " + + "<br>");
+            const arrayForm = Array.from(arrayCoches, coche => coche * 2);
+            const arrayForm1 = Array.from(arrayCoches1, coche => coche * 2);
+
+            document.write("Metodo from array1: " + arrayForm + "<br>");
+            document.write("Metodo from array2: " + arrayForm1 + "<br>");
         }
+
         //Funcio amb includes()
         function includes(){
-            document.write("Metodo includes array1: " + + "<br>");
-            document.write("Metodo includes array2: " + + "<br>");
+            const incluido1 = arrayCoches.includes("Ford");
+            const incluido2 = arrayCoches1.includes("Peugeot");
+            document.write("Metodo includes array1: " + incluido1 + "<br>");
+            document.write("Metodo includes array2: " + incluido2 + "<br>");
         }
         //Funcio amb indexOf()
         function indexOf(){
-            document.write("Metodo indexOf array1: " + + "<br>");
-            document.write("Metodo indexOf array2: " + + "<br>");
+            let indice1 = "Citroën";
+            let indice2 = "Rangerover";
+            document.write("Metodo indexOf array1: " + arrayCoches.indexOf(indice1) + "<br>");
+            document.write("Metodo indexOf array2: " + arrayCoches1.indexOf(indice2) + "<br>");
         }
         //Funcio amb isArray()
         function isArray(){
-            document.write("Metodo isArray array1: " + + "<br>");
-            document.write("Metodo isArray array2: " + + "<br>");
+            document.write("Metodo isArray array1: " + Array.isArray(arrayCoches) + "<br>");
+            document.write("Metodo isArray array2: " + Array.isArray(arrayCoches1) + "<br>");
         }
         //Funcio amb join()
         function join(){
-            document.write("Metodo join array1: " + + "<br>");
-            document.write("Metodo join array2: " + + "<br>");
+            document.write("Metodo join array1: " + arrayCoches.join(', ') + "<br>");
+            document.write("Metodo join array2: " + arrayCoches1.join(', ') + "<br>");
         }
         //Funcio amb keys()
         function keys(){
-            document.write("Metodo keys array1: " + + "<br>");
-            document.write("Metodo keys array2: " + + "<br>");
+            const llavesArray = Array.from(arrayCoches.keys());
+            const llavesArray1 = Array.from(arrayCoches1.keys());
+            document.write("Metodo keys array1: " + llavesArray + "<br>");
+            document.write("Metodo keys array2: " + llavesArray1 + "<br>");
         }
         //Funcio amb lastIndexOf()
         function lastIndexOf(){
-            document.write("Metodo lastIndexOf array1: " + + "<br>");
-            document.write("Metodo lastIndexOf array2: " + + "<br>");
+            document.write("Metodo lastIndexOf array1: " + arrayCoches.lastIndexOf("Seat") + "<br>");
+            document.write("Metodo lastIndexOf array2: " + arrayCoches1.lastIndexOf("Renault") + "<br>");
         }
         //Funcio amb length()
         function length(){
-            document.write("Metodo length array1: " + + "<br>");
-            document.write("Metodo length array2: " + + "<br>");
+            document.write("Metodo length array1: " + arrayCoches.length + "<br>");
+            document.write("Metodo length array2: " + arrayCoches1.length + "<br>");
         }
         //Funcio amb map()
-        function map(){
-            document.write("Metodo map array1: " + + "<br>");
-            document.write("Metodo map array2: " + + "<br>");
+        function map() {
+            const mapArray1 = arrayCoches.map(coche => (typeof coche === 'string') ? coche.toUpperCase() : coche);
+            const mapArray2 = arrayCoches1.map(coche => (typeof coche === 'string') ? coche.toUpperCase() : coche);
+            document.write("Metodo map array1: " + mapArray1.join(', ') + "<br>");
+            document.write("Metodo map array2: " + mapArray2.join(', ') + "<br>");
         }
         //Funcio amb pop()
         function pop(){
-            document.write("Metodo pop array1: " + + "<br>");
-            document.write("Metodo pop array2: " + + "<br>");
+            const popArray1 = arrayCoches.pop();
+            const popArray2 = arrayCoches1.pop();
+            document.write("Metodo pop array1: " + popArray1 + "<br>");
+            document.write("Metodo pop array2: " + popArray2 + "<br>");
         }
         //Funcio amb prototype()
         function prototype(){
-            document.write("Metodo prototype array1: " + + "<br>");
-            document.write("Metodo prototype array2: " + + "<br>");
+            document.write("Metodo prototype array1: No aplicable <br>");
+            document.write("Metodo prototype array2: No aplicable <br>");
         }
         //Funcio amb push()
         function push(){
-            document.write("Metodo push array1: " + + "<br>");
-            document.write("Metodo push array2: " + + "<br>");
+            const pushArray1 = arrayCoches.push("Mercedes");
+            const pushArray2 = arrayCoches1.push("Fiat");
+            document.write("Metodo push array1: " + arrayCoches.length + "<br>");
+            document.write("Metodo push array2: " + arrayCoches1.length + "<br>");
         }
         //Funcio amb reduce()
-        function reduce(){
-            document.write("Metodo reduce array1: " + + "<br>");
-            document.write("Metodo reduce array2: " + + "<br>");
+        function reduce() {
+            const reduceArray1 = arrayCoches.reduce((acc, coche) => acc + coche, "");
+            const reduceArray2 = arrayCoches1.reduce((acc, coche) => acc + coche, "");
+            document.write("Metodo reduce array1: " + reduceArray1 + "<br>");
+            document.write("Metodo reduce array2: " + reduceArray2 + "<br>");
         }
+
         //Funcio amb reduceRight()
-        function reduceRight(){
-            document.write("Metodo reduceRight array1: " + + "<br>");
-            document.write("Metodo reduceRight array2: " + + "<br>");
+        function reduceRight() {
+            const reduceRightArray1 = arrayCoches.reduceRight((acc, coche) => acc + coche, "");
+            const reduceRightArray2 = arrayCoches1.reduceRight((acc, coche) => acc + coche, "");
+            document.write("Metodo reduceRight array1: " + reduceRightArray1 + "<br>");
+            document.write("Metodo reduceRight array2: " + reduceRightArray2 + "<br>");
         }
+
         //Funcio amb reverse()
-        function reverse(){
-            document.write("Metodo reverse array1: " + + "<br>");
-            document.write("Metodo reverse array2: " + + "<br>");
+        function reverse() {
+            const reverseArray1 = arrayCoches.slice().reverse();
+            const reverseArray2 = arrayCoches1.slice().reverse();
+            document.write("Metodo reverse array1: " + reverseArray1.join(', ') + "<br>");
+            document.write("Metodo reverse array2: " + reverseArray2.join(', ') + "<br>");
         }
+
         //Funcio amb shift()
-        function shift(){
-            document.write("Metodo shift array1: " + + "<br>");
-            document.write("Metodo shift array2: " + + "<br>");
+        function shift() {
+            const shiftArray1 = arrayCoches.slice();
+            const shiftedElement1 = shiftArray1.shift();
+            const shiftArray2 = arrayCoches1.slice();
+            const shiftedElement2 = shiftArray2.shift();
+            document.write("Metodo shift array1: " + shiftedElement1 + "<br>");
+            document.write("Metodo shift array2: " + shiftedElement2 + "<br>");
         }
+
         //Funcio amb slice()
-        function slice(){
-            document.write("Metodo slice array1: " + + "<br>");
-            document.write("Metodo slice array2: " + + "<br>");
+        function slice() {
+            const sliceArray1 = arrayCoches.slice(1, 4);
+            const sliceArray2 = arrayCoches1.slice(2);
+            document.write("Metodo slice array1: " + sliceArray1.join(', ') + "<br>");
+            document.write("Metodo slice array2: " + sliceArray2.join(', ') + "<br>");
         }
+
         //Funcio amb some()
-        function some(){
-            document.write("Metodo some array1: " + + "<br>");
-            document.write("Metodo some array2: " + + "<br>");
+        function some() {
+            const someArray1 = arrayCoches.some(coche => coche === "Ford");
+            const someArray2 = arrayCoches1.some(coche => coche === "Fiat");
+            document.write("Metodo some array1: " + someArray1 + "<br>");
+            document.write("Metodo some array2: " + someArray2 + "<br>");
         }
+
         //Funcio amb sort()
-        function sort(){
-            document.write("Metodo sort array1: " + + "<br>");
-            document.write("Metodo sort array2: " + + "<br>");
+        function sort() {
+            const sortArray1 = arrayCoches.slice().sort();
+            const sortArray2 = arrayCoches1.slice().sort();
+            document.write("Metodo sort array1: " + sortArray1.join(', ') + "<br>");
+            document.write("Metodo sort array2: " + sortArray2.join(', ') + "<br>");
         }
+
         //Funcio amb splice()
-        function splice(){
-            document.write("Metodo splice array1: " + + "<br>");
-            document.write("Metodo splice array2: " + + "<br>");
+        function splice() {
+            const spliceArray1 = arrayCoches.slice();
+            const splicedElements1 = spliceArray1.splice(2, 1, "Ford");
+            const spliceArray2 = arrayCoches1.slice();
+            const splicedElements2 = spliceArray2.splice(1, 2, "Rangerover", "Hyundai");
+            document.write("Metodo splice array1: " + spliceArray1.join(', ') + "<br>");
+            document.write("Metodo splice array2: " + spliceArray2.join(', ') + "<br>");
         }
         //Funcio amb toString()
         function toString(){
-            document.write("Metodo toString array1: " + + "<br>");
-            document.write("Metodo toString array2: " + + "<br>");
+            document.write("Metodo toString array1: " + arrayCoches.toString() + "<br>");
+            document.write("Metodo toString array2: " + arrayCoches1.toString() + "<br>");
         }
         //Funcio amb unshift()
         function unshift(){
+            const unshiftArray1 = arrayCoches.unshift("Ford", "Seat");
+            const unshiftArray2 = arrayCoches1.unshift("Hyundai");
             document.write("Metodo unshift array1: " + + "<br>");
             document.write("Metodo unshift array2: " + + "<br>");
         }
         //Funcio amb valueOf()
         function valueOf(){
-            document.write("Metodo valueOf array1: " + + "<br>");
-            document.write("Metodo valueOf array2: " + + "<br>");
+            document.write("Metodo valueOf array1: " + arrayCoches.valueOf() + "<br>");
+            document.write("Metodo valueOf array2: " + arrayCoches1.valueOf() + "<br>");
         }
     </script>
 </html>
